@@ -113,6 +113,8 @@ A API RESTful está disponível na rota `/api`. Abaixo estão os endpoints dispo
 - **GET /api/travel-order/{id}:** Consulta um pedido de viagem por ID.
 - **GET /api/travel-order:** Lista todos os pedidos de viagem, com opções de filtro por status, período e destino.
 
+http://localhost:8000/api/documentation (wip)
+
 ### Informações Adicionais
 
 - A autenticação é feita via JWT. O token deve ser incluído no header `Authorization` com o prefixo `Bearer`.
