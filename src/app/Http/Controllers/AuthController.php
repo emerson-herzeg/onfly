@@ -6,6 +6,17 @@ use App\Services\AuthService;
 use App\Http\Requests\AuthRequest;
 use App\Http\Resources\UserResource;
 
+/**
+ * @OA\PathItem(
+ *     path="/auth"
+ * )
+ *
+ * @OA\Info(
+ *  title="Login",
+ *  version="1.0.0",
+ * )
+ *
+ */
 class AuthController extends Controller
 {
     protected $authService;
@@ -16,6 +27,34 @@ class AuthController extends Controller
         parent::__construct();
     }
 
+    /**
+     * @OA\Post(
+     *     path="/auth",
+     *     summary="Authentication",
+     *     @OA\Parameter(
+     *         name="email",
+     *         in="path",
+     *         description="Email of the user",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         ),
+     *      ),
+     *      @OA\Parameter(
+     *         name="password",
+     *         in="path",
+     *         description="Password of the user",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="User not found"
+     *     )
+     * )
+     */
     public function auth(AuthRequest $request)
     {
         try {
