@@ -1,0 +1,21 @@
+
+services:
+  web:
+    build:
+      context: ./services/web
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "8080:80"
+    depends_on:
+    - mysql
+  mysql:
+    build: 
+      context: ./services/mysql  
+    ports:  
+      - "3306:3306"      
+    environment:
+      - MYSQL_DATABASE=onfly
+      - MYSQL_USER=onfly
+      - MYSQL_PASSWORD=#oNf!8i
+      - MYSQL_ROOT_PASSWORD=&#oNf!8i
